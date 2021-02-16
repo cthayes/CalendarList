@@ -102,7 +102,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
                 ForEach(eventsForSelectedDate(), id:\.data) { event in
                     self.viewForEventBlock(event)
                 }
-            }
+            }.listStyle(PlainListStyle())
         }
     }
     
