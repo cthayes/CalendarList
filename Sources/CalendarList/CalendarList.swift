@@ -106,8 +106,6 @@ public struct CalendarList<T:Hashable, Content:View>: View {
             .navigationBarTitle("\(self.months[self.currentPage].monthTitle())", displayMode: .inline)
             .navigationBarItems(leading: leadingButtons(), trailing: trailingButtons())
         }
-        .frame(maxHeight: .infinity)
-        .background(self.backgroundViewColor)
     }
     #endif
 
@@ -134,13 +132,12 @@ public struct CalendarList<T:Hashable, Content:View>: View {
             
             Divider()
                         
-            List {
+            VStack {
                 ForEach(eventsForSelectedDate(), id:\.data) { event in
                     self.viewForEventBlock(event)
+                    Divider()
                 }
-                .listRowBackground(self.backgroundViewColor)
             }
-            .listStyle(PlainListStyle())
             
         }
         .background(self.backgroundViewColor)
