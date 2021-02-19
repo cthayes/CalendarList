@@ -132,13 +132,15 @@ public struct CalendarList<T:Hashable, Content:View>: View {
             
             Divider()
                         
-            VStack {
+            ScrollView {
                 ForEach(eventsForSelectedDate(), id:\.data) { event in
                     self.viewForEventBlock(event)
                     Divider()
                 }
             }
+            .background(self.backgroundViewColor)
             
+            Spacer()
         }
         .background(self.backgroundViewColor)
     }
