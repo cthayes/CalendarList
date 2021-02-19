@@ -59,7 +59,7 @@ struct CalendarMonthView<T:Hashable>: View {
                         }
                     }
                         
-                    .padding(.horizontal)
+                    .padding([.leading, .trailing], 10)
                 }
             }
         }
