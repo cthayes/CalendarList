@@ -106,6 +106,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
             .navigationBarTitle("\(self.months[self.currentPage].monthTitle())", displayMode: .inline)
             .navigationBarItems(leading: leadingButtons(), trailing: trailingButtons())
         }
+        .frame(maxHeight: .infinity)
         .background(self.backgroundViewColor)
     }
     #endif
