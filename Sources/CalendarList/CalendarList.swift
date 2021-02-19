@@ -48,6 +48,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
                 events:[CalendarEvent<T>],
                 selectedDateColor:Color = Color.accentColor,
                 todayDateColor:Color = Color.accentColor.opacity(0.3),
+                backgroundViewColor:Color = Color.primary,
                 @ViewBuilder viewForEvent: @escaping (CalendarEvent<T>) -> Content) {
         
         self.calendar = calendar
@@ -102,8 +103,12 @@ public struct CalendarList<T:Hashable, Content:View>: View {
                 ForEach(eventsForSelectedDate(), id:\.data) { event in
                     self.viewForEventBlock(event)
                 }
-            }.listStyle(PlainListStyle())
+                .listRowBackground(backgroundViewColor)
+            }
+            .listStyle(PlainListStyle())
+            
         }
+        .background(backgroundViewColor)
     }
     
     func updateMonthsAfterPagerSwipe(newIndex:Int) {
