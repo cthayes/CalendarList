@@ -34,6 +34,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
     
     private var selectedDateColor:Color
     private var todayDateColor:Color
+    private var backgroundViewColor:Color
     
     /// Create a new paginated calendar SwiftUI view.
     /// - Parameters:
@@ -58,6 +59,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
         
         self.selectedDateColor = selectedDateColor
         self.todayDateColor = todayDateColor
+        self.backgroundViewColor = backgroundViewColor
         
         self.viewForEventBlock = viewForEvent
     }
