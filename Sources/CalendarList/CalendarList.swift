@@ -36,6 +36,8 @@ public struct CalendarList<T:Hashable, Content:View>: View {
     private var todayDateColor:Color
     private var backgroundViewColor:Color
     
+    let coloredNavAppearance = UINavigationBarAppearance()
+    
     /// Create a new paginated calendar SwiftUI view.
     /// - Parameters:
     ///   - initialDate: the initial month to be displayed will be extracted from this date. Defaults to the current day.
@@ -62,6 +64,14 @@ public struct CalendarList<T:Hashable, Content:View>: View {
         self.backgroundViewColor = backgroundViewColor
         
         self.viewForEventBlock = viewForEvent
+        
+        coloredNavAppearance.configureWithOpaqueBackground()
+        coloredNavAppearance.backgroundColor = self.backgroundViewColor
+        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.primary]
+        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primary]
+
+        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
     }
     
     #if os(macOS)
