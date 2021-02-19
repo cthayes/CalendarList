@@ -66,9 +66,9 @@ public struct CalendarList<T:Hashable, Content:View>: View {
         self.viewForEventBlock = viewForEvent
         
         coloredNavAppearance.configureWithOpaqueBackground()
-        coloredNavAppearance.backgroundColor = self.backgroundViewColor
-        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.primary]
-        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.primary]
+        coloredNavAppearance.backgroundColor = UIColor(self.backgroundViewColor)
+        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor(Color.primary)]
+        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(Color.primary)]
 
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
