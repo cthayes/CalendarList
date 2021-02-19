@@ -75,6 +75,7 @@ public struct CalendarList<T:Hashable, Content:View>: View {
             .navigationBarTitle("\(self.months[self.currentPage].monthTitle())", displayMode: .inline)
             .navigationBarItems(leading: leadingButtons(), trailing: trailingButtons())
         }
+        .background(self.backgroundViewColor)
     }
     #endif
 
@@ -105,12 +106,12 @@ public struct CalendarList<T:Hashable, Content:View>: View {
                 ForEach(eventsForSelectedDate(), id:\.data) { event in
                     self.viewForEventBlock(event)
                 }
-                .listRowBackground(backgroundViewColor)
+                .listRowBackground(self.backgroundViewColor)
             }
             .listStyle(PlainListStyle())
             
         }
-        .background(backgroundViewColor)
+        .background(self.backgroundViewColor)
     }
     
     func updateMonthsAfterPagerSwipe(newIndex:Int) {
